@@ -87,6 +87,7 @@ public class LetterSegmenter implements ISegmenter {
      * @see org.wltea.analyzer.core.ISegmenter#analyze(org.wltea.analyzer.core.
      * AnalyzeContext)
      */
+    @Override
     public void analyze(AnalyzeContext context) {
         boolean bufferLockFlag = false;
         // 处理英文字母

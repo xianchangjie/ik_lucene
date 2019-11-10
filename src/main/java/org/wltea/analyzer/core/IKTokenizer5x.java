@@ -1,12 +1,11 @@
 package org.wltea.analyzer.core;
 
-import java.io.IOException;
-
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
 import org.apache.lucene.analysis.tokenattributes.OffsetAttribute;
-import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 import org.apache.lucene.util.AttributeFactory;
+
+import java.io.IOException;
 
 public class IKTokenizer5x extends Tokenizer {
     private IKSegmenter _IKImplement;
@@ -27,6 +26,7 @@ public class IKTokenizer5x extends Tokenizer {
         this._IKImplement = new IKSegmenter(this.input, true);
     }
 
+    @Override
     public boolean incrementToken() throws IOException {
         this.clearAttributes();
         Lexeme nextLexeme = this._IKImplement.next();
@@ -41,11 +41,13 @@ public class IKTokenizer5x extends Tokenizer {
         }
     }
 
+    @Override
     public void reset() throws IOException {
         super.reset();
         this._IKImplement.reset(this.input);
     }
 
+    @Override
     public final void end() {
         int finalOffset = this.correctOffset(this.endPosition);
         this.offsetAtt.setOffset(finalOffset, finalOffset);
