@@ -1,4 +1,4 @@
-package com.example.ikluence.model;
+package com.example.iklucene.model;
 
 /**
  * @author changjiexian

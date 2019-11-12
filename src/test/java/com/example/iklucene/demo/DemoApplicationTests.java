@@ -1,4 +1,4 @@
-package com.example.ikluence.demo;
+package com.example.iklucene.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
